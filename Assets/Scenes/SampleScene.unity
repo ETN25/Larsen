@@ -930,6 +930,7 @@ GameObject:
   - component: {fileID: 614163455}
   - component: {fileID: 614163454}
   - component: {fileID: 614163453}
+  - component: {fileID: 614163456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1015,6 +1016,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementScript: {fileID: 614163454}
   mouseLook: {fileID: 614163453}
+--- !u!114 &614163456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614163450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8ec02dc875fed4d906a8712340bf0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &632180465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,9 +2263,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1612517391}
   - component: {fileID: 1612517392}
+  - component: {fileID: 1612517393}
   m_Layer: 0
   m_Name: Spot Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2333,6 +2347,18 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1612517393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612517390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee8ec02dc875fed4d906a8712340bf0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1648581375
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,6 +2560,7 @@ GameObject:
   - component: {fileID: 1914159070}
   - component: {fileID: 1914159072}
   - component: {fileID: 1914159071}
+  - component: {fileID: 1914159073}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -2596,6 +2623,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1914159073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914159069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42cf723a2b5034c4597e76c7e53df06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  race: 0
+  interactionTimer: 0
+  interactionCooldown: 10
+  Player: {fileID: 614163456}
 --- !u!1 &2056334428
 GameObject:
   m_ObjectHideFlags: 0
