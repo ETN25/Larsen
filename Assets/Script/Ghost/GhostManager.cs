@@ -16,65 +16,77 @@ public class GhostManager : MonoBehaviour
     void Start()
     {
         race = Random.Range(1, 3);
-        
+        interactionCooldown = Random.Range(10f, 60f);
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        interactionTimer += 1 * Time.deltaTime;
+        if(interactionCooldown <= interactionTimer)
+        {
+            Action();
+            interactionCooldown = Random.Range(10f, 60f);
+            interactionTimer = 0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {        
         if (other.CompareTag("Player"))
         {
-            Selection = Random.Range(0f, 10f);
-            if (race == 1)
+            
+        }
+    }
+
+
+    private void Action()
+    {
+        Selection = Random.Range(0f, 10f);
+        if (race == 1)
+        {
+            if (Selection < 3f)
             {
-                if (Selection < 3f)
-                {
-                    Shadow();
-                }
-                if ( 3f <= Selection && Selection < 6f)
-                {
-                    Glitch();
-                }
-                if (Selection > 6f) //Plus courant
-                {
-                    Whisper();
-                }
+                Shadow();
             }
-            if (race == 2)
+            if (3f <= Selection && Selection < 6f)
             {
-                if (Selection < 3f)
-                {
-                    Whisper();
-                }
-                if (3f <= Selection && Selection < 6f)
-                {
-                    Glitch();
-                }
-                if (Selection > 6f) //Plus courant
-                {
-                   Shadow();
-                }
+                Glitch();
             }
-            if (race == 3)
+            if (Selection > 6f) //Plus courant
             {
-                if (Selection < 3f)
-                {
-                    Shadow();
-                }
-                if (3f <= Selection && Selection < 6f)
-                {
-                    Whisper();
-                }
-                if (Selection > 6f) //Plus courant
-                {
-                    Glitch(); 
-                }
+                Whisper();
+            }
+        }
+        if (race == 2)
+        {
+            if (Selection < 3f)
+            {
+                Whisper();
+            }
+            if (3f <= Selection && Selection < 6f)
+            {
+                Glitch();
+            }
+            if (Selection > 6f) //Plus courant
+            {
+                Shadow();
+            }
+        }
+        if (race == 3)
+        {
+            if (Selection < 3f)
+            {
+                Shadow();
+            }
+            if (3f <= Selection && Selection < 6f)
+            {
+                Whisper();
+            }
+            if (Selection > 6f) //Plus courant
+            {
+                Glitch();
             }
         }
     }
@@ -82,7 +94,7 @@ public class GhostManager : MonoBehaviour
     private void Shadow()
     {
         print("1");
-        Instantiate(shadow, new Vector3(transform.position.x + Random.Range(-3f, 3f), 1.2f, transform.position.z + Random.Range(-3f, 3f)), transform.rotation);
+        Instantiate(shadow, transform);
     }
 
     private void Glitch()

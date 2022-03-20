@@ -9,7 +9,8 @@ public class ShadowLooking : MonoBehaviour
     void Start()
     {
         Player = FindObjectOfType<InputManager>().transform;
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 1.5f);
+        transform.position = new Vector3(transform.position.x, 1.45f, transform.position.z);
     }
 
     // Update is called once per frame

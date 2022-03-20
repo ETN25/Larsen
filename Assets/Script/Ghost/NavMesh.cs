@@ -41,6 +41,14 @@ public class NavMesh : MonoBehaviour
             }
             waiting += 1 * Time.deltaTime;
         }
-        
+        if(newPosition.z < -9 || newPosition.z > 9)
+        {
+            newPosition = new Vector3(startPosition.x + Random.Range(-range, range), startPosition.y, startPosition.z + Random.Range(-range, range));
+        }
+        if (newPosition.x < -13 || newPosition.x > 13)
+        {
+            newPosition = new Vector3(startPosition.x + Random.Range(-range, range), startPosition.y, startPosition.z + Random.Range(-range, range));
+        }
+
     }
 }
