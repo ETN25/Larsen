@@ -6,9 +6,11 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] Movement movementScript;
     [SerializeField] MouseLook mouseLook;
+    [SerializeField] Lamp lamp;
 
     PlayerController controls;
     PlayerController.MovementActions movement;
+    PlayerController.ActionActions action;
 
     Vector2 horizontalInput;
     Vector2 mouseInput;
@@ -17,11 +19,14 @@ public class InputManager : MonoBehaviour
     {
         controls = new PlayerController();
         movement = controls.Movement;
+        action = controls.Action;
 
         movement.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
 
         movement.MouseX.performed += ctx => mouseInput.x = ctx.ReadValue<float>();
         movement.MouseY.performed += ctx => mouseInput.y = ctx.ReadValue<float>();
+
+        action.Light.performed += ctx => lamp.OnOff();
     }
 
     private void OnEnable()

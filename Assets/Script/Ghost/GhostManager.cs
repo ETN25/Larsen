@@ -8,7 +8,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] float interactionTimer;
     [SerializeField] float interactionCooldown;
     [SerializeField] float Selection;
-    [SerializeField] GameObject Player;
+    [SerializeField] Lamp lamp;
     public AudioSource Breath;
 
     // Start is called before the first frame update
@@ -27,7 +27,8 @@ public class GhostManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("yo");
+        
+        
         if (other.CompareTag("Player"))
         {
             Selection = Random.Range(0f, 10f);
@@ -35,14 +36,15 @@ public class GhostManager : MonoBehaviour
             {
                 if (Selection < 3f)
                 {
-                    //Lampe
+                    print("1");
                 }
                 if ( 3f <= Selection && Selection < 6f)
                 {
-                    //Ombre
+                    lamp.glitchOn = true;
                 }
                 if (Selection > 6f) //Plus courant
                 {
+                    print("3");
                     Breath.Play();
                 }
             }
