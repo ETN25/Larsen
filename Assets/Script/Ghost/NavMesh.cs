@@ -8,7 +8,7 @@ public class NavMesh : MonoBehaviour
     public Vector3 startPosition;
     [SerializeField] Vector3 newPosition;
     [SerializeField] float range = 10f;
-    [SerializeField] float waitingTime;
+    public float waitingTime;
     [SerializeField] float waiting;
 
     [SerializeField] Vector3[] Position = new Vector3[6];
