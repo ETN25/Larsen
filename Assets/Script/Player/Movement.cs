@@ -17,7 +17,6 @@ public class Movement : MonoBehaviour
     public void ReceiveInput(Vector2 _horizontalInput)
     {
         horizontalInput = _horizontalInput;
-        print(horizontalInput);
     }
 
 }

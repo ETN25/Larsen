@@ -5,15 +5,20 @@ using UnityEngine.AI;
 public class NavMesh : MonoBehaviour
 {
     [SerializeField] NavMeshAgent Navigation;
-    [SerializeField] Vector3 startPosition;
+    public Vector3 startPosition;
     [SerializeField] Vector3 newPosition;
     [SerializeField] float range = 10f;
     [SerializeField] float waitingTime;
     [SerializeField] float waiting;
 
+    [SerializeField] Vector3[] Position = new Vector3[6];
+    private int Selection;
+
     // Start is called before the first frame update
     void Start()
     {
+        Selection = Random.Range(0, Position.Length);
+        transform.position = Position[Selection];
         startPosition = transform.position;
         newPosition = new Vector3(startPosition.x + Random.Range(-range, range), startPosition.y, startPosition.z + Random.Range(-range, range));
         Navigation.destination = newPosition;

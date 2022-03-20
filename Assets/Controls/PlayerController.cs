@@ -156,7 +156,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d85063be-d073-4058-b14a-ad7b1f012b19"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
