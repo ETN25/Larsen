@@ -150,6 +150,30 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""OS"",
+                    ""type"": ""Button"",
+                    ""id"": ""ecc636b3-7998-4100-b8ff-f7bfe9a28928"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SB"",
+                    ""type"": ""Button"",
+                    ""id"": ""dea5822c-4bfa-4218-b268-947823084a9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""BP"",
+                    ""type"": ""Button"",
+                    ""id"": ""95db5c57-eaac-494c-b1ba-2493a21fe3d5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -167,7 +191,7 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""650b6e07-d310-4f49-bcf7-f387d1bd2636"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -183,6 +207,39 @@ public class @PlayerController : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""820bda73-e3c0-4c17-952c-e627747957ff"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a5af9d72-48e3-45d6-b70e-7a3fd29234a1"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fa18b96b-dd79-443b-9274-458b25532875"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BP"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -201,6 +258,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
         m_Action_Light = m_Action.FindAction("Light", throwIfNotFound: true);
         m_Action_Item = m_Action.FindAction("Item", throwIfNotFound: true);
         m_Action_Menu = m_Action.FindAction("Menu", throwIfNotFound: true);
+        m_Action_OS = m_Action.FindAction("OS", throwIfNotFound: true);
+        m_Action_SB = m_Action.FindAction("SB", throwIfNotFound: true);
+        m_Action_BP = m_Action.FindAction("BP", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -302,6 +362,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
     private readonly InputAction m_Action_Light;
     private readonly InputAction m_Action_Item;
     private readonly InputAction m_Action_Menu;
+    private readonly InputAction m_Action_OS;
+    private readonly InputAction m_Action_SB;
+    private readonly InputAction m_Action_BP;
     public struct ActionActions
     {
         private @PlayerController m_Wrapper;
@@ -309,6 +372,9 @@ public class @PlayerController : IInputActionCollection, IDisposable
         public InputAction @Light => m_Wrapper.m_Action_Light;
         public InputAction @Item => m_Wrapper.m_Action_Item;
         public InputAction @Menu => m_Wrapper.m_Action_Menu;
+        public InputAction @OS => m_Wrapper.m_Action_OS;
+        public InputAction @SB => m_Wrapper.m_Action_SB;
+        public InputAction @BP => m_Wrapper.m_Action_BP;
         public InputActionMap Get() { return m_Wrapper.m_Action; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -327,6 +393,15 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @Menu.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnMenu;
+                @OS.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnOS;
+                @OS.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnOS;
+                @OS.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnOS;
+                @SB.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnSB;
+                @SB.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnSB;
+                @SB.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnSB;
+                @BP.started -= m_Wrapper.m_ActionActionsCallbackInterface.OnBP;
+                @BP.performed -= m_Wrapper.m_ActionActionsCallbackInterface.OnBP;
+                @BP.canceled -= m_Wrapper.m_ActionActionsCallbackInterface.OnBP;
             }
             m_Wrapper.m_ActionActionsCallbackInterface = instance;
             if (instance != null)
@@ -340,6 +415,15 @@ public class @PlayerController : IInputActionCollection, IDisposable
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
+                @OS.started += instance.OnOS;
+                @OS.performed += instance.OnOS;
+                @OS.canceled += instance.OnOS;
+                @SB.started += instance.OnSB;
+                @SB.performed += instance.OnSB;
+                @SB.canceled += instance.OnSB;
+                @BP.started += instance.OnBP;
+                @BP.performed += instance.OnBP;
+                @BP.canceled += instance.OnBP;
             }
         }
     }
@@ -355,5 +439,8 @@ public class @PlayerController : IInputActionCollection, IDisposable
         void OnLight(InputAction.CallbackContext context);
         void OnItem(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
+        void OnOS(InputAction.CallbackContext context);
+        void OnSB(InputAction.CallbackContext context);
+        void OnBP(InputAction.CallbackContext context);
     }
 }

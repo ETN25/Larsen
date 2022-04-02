@@ -137,6 +137,30 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "OS",
+                    "type": "Button",
+                    "id": "ecc636b3-7998-4100-b8ff-f7bfe9a28928",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SB",
+                    "type": "Button",
+                    "id": "dea5822c-4bfa-4218-b268-947823084a9a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "BP",
+                    "type": "Button",
+                    "id": "95db5c57-eaac-494c-b1ba-2493a21fe3d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -154,7 +178,7 @@
                 {
                     "name": "",
                     "id": "650b6e07-d310-4f49-bcf7-f387d1bd2636",
-                    "path": "",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -170,6 +194,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "820bda73-e3c0-4c17-952c-e627747957ff",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OS",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a5af9d72-48e3-45d6-b70e-7a3fd29234a1",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa18b96b-dd79-443b-9274-458b25532875",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BP",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

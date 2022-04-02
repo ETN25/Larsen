@@ -15,7 +15,7 @@ public class GhostManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        race = Random.Range(1, 3);
+        race = Random.Range(1, 4);
         interactionCooldown = Random.Range(10f, 60f);
         
     }
