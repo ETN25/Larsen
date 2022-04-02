@@ -7,6 +7,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float sensitivityX = 8f;
     [SerializeField] float sensitivityY = 0.5f;
     float mouseX, mouseY;
+    [SerializeField] GameObject Menu;
 
     [SerializeField] Transform playerCamera;
     [SerializeField] float xClamp = 85f;
@@ -20,12 +21,17 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up, mouseX * Time.deltaTime);
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
-        Vector3 targetRotation = transform.eulerAngles;
-        targetRotation.x = xRotation;
-        playerCamera.eulerAngles = targetRotation;
+        if(!Menu.GetComponent<PauseMenu>().Pause)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            transform.Rotate(Vector3.up, mouseX);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -xClamp, xClamp);
+            Vector3 targetRotation = transform.eulerAngles;
+            targetRotation.x = xRotation;
+            playerCamera.eulerAngles = targetRotation;
+        }       
+        
     }
 
     public void ReceiveInput(Vector2 mouseInput)

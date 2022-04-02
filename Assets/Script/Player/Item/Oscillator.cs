@@ -15,6 +15,8 @@ public class Oscillator : MonoBehaviour
     [SerializeField] float CoolDown;
     [SerializeField] float NextInteraction;
 
+    public Material M_ON, M_OFF;
+    public GameObject LED;
 
     private void Awake()
     {
@@ -26,7 +28,7 @@ public class Oscillator : MonoBehaviour
     void Start()
     {
         race = ghost.race;
-        NextInteraction = Random.Range(1f, 2f);
+        NextInteraction = Random.Range(10f, 120f);
     }
 
     // Update is called once per frame
@@ -68,14 +70,26 @@ public class Oscillator : MonoBehaviour
     {
         if (On)
         {
-            On = false;
-            sound.Stop();
+            ItemOff();
         }
         else
         {
-            On = true;
-            sound.Play();
+            ItemOn();
         }
+    }
+
+    public void ItemOn()
+    {
+        On = true;
+        sound.Play();
+        LED.GetComponent<MeshRenderer>().material = M_ON;
+    }
+
+    public void ItemOff()
+    {
+        On = false;
+        sound.Stop();
+        LED.GetComponent<MeshRenderer>().material = M_OFF;
     }
 
     private void OnEnable()

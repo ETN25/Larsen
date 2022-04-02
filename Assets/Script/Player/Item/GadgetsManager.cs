@@ -20,6 +20,7 @@ public class GadgetsManager : MonoBehaviour
         }
         else
         {
+            oscillator.GetComponent<Oscillator>().ItemOff();
             oscillator.SetActive(false);
             OS = 0;
         }
@@ -30,6 +31,7 @@ public class GadgetsManager : MonoBehaviour
         else
         {
             spiritbox.SetActive(false);
+            spiritbox.GetComponent<SpiritBox>().ItemOff();
             SB = 0;
         }
         if (BP == 1)
@@ -39,6 +41,7 @@ public class GadgetsManager : MonoBehaviour
         else
         {
             bipor.SetActive(false);
+            bipor.GetComponent<Bippor>().ItemOff();
             BP = 0;
         }
 
