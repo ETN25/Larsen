@@ -46,11 +46,11 @@ public class Choice : MonoBehaviour
     {
         if (race == Ghost.GetComponent<GhostManager>().race)
         {
-
+            SceneManager.LoadScene("Win");
         }
         else
         {
-
+            SceneManager.LoadScene("Menu");
         }
     }
 }

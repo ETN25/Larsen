@@ -3698,7 +3698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &971652638
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3744,7 +3744,7 @@ MonoBehaviour:
   MR: {fileID: 1265891465}
   PG: {fileID: 1638868781}
   Confirm: {fileID: 634482229}
-  Ghost: {fileID: 971652637}
+  Ghost: {fileID: 1914159069}
   race: 0
 --- !u!1 &989288092
 GameObject:
