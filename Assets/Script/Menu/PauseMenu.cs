@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public bool Pause;
-    [SerializeField] GameObject Menu;
+    [SerializeField] GameObject MainMenu, OptionMenu, GhostPediaMenu, ItemPediaMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause = true;
                 Time.timeScale = 0;
-                Menu.SetActive(true);
+                MainMenu.SetActive(true);
                 Cursor.lockState = CursorLockMode.Confined;
             }
             else
@@ -30,8 +30,11 @@ public class PauseMenu : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Pause = false;
                 Time.timeScale = 1;
-                Menu.SetActive(false);
-                
+                MainMenu.SetActive(false);
+                OptionMenu.SetActive(false);
+                GhostPediaMenu.SetActive(false);
+                ItemPediaMenu.SetActive(false);
+
             }
 
         }
@@ -46,6 +49,32 @@ public class PauseMenu : MonoBehaviour
     {
         Pause = false;
         Time.timeScale = 1;
-        Menu.SetActive(false);
+        MainMenu.SetActive(false);
+    }
+
+    public void Option()
+    {
+        OptionMenu.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void GhostPedia()
+    {
+        GhostPediaMenu.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void ItemPedia()
+    {
+        ItemPediaMenu.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void Back()
+    {
+        MainMenu.SetActive(true);
+        OptionMenu.SetActive(false);
+        GhostPediaMenu.SetActive(false);
+        ItemPediaMenu.SetActive(false);
     }
 }
