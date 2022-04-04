@@ -10,6 +10,7 @@ public class Oscillator : MonoBehaviour
     public bool On = false;
 
     [SerializeField] GhostManager ghost;
+    [SerializeField] Transform ghostPosition;
     [SerializeField] int race;
 
     [SerializeField] float CoolDown;
@@ -34,7 +35,7 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (On)
+        if (On && Vector3.Distance(ghostPosition.position, transform.position) < 8f)
         {
             if (race == 1 || race == 3)
             {

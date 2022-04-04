@@ -10,6 +10,7 @@ public class SpiritBox : MonoBehaviour
     public bool On = false;
 
     [SerializeField] GhostManager ghost;
+    [SerializeField] Transform ghostPosition;
     [SerializeField] int race;
 
     [SerializeField] float CoolDown;
@@ -37,7 +38,7 @@ public class SpiritBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (On)
+        if (On && Vector3.Distance(ghostPosition.position, transform.position) < 8f)
         {
             if (race == 2 || race == 1)
             {

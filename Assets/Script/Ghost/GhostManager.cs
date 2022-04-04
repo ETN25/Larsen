@@ -10,7 +10,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] float Selection;
     [SerializeField] Lamp lamp;
     public AudioSource Breath;
-    [SerializeField] GameObject shadow;
+    [SerializeField] GameObject shadow, player;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +26,12 @@ public class GhostManager : MonoBehaviour
         interactionTimer += 1 * Time.deltaTime;
         if(interactionCooldown <= interactionTimer)
         {
-            Action();
-            interactionCooldown = Random.Range(10f, 60f);
-            interactionTimer = 0f;
+            if (Vector3.Distance(player.transform.position, transform.position) < 4f)
+            {
+                Action();
+                interactionCooldown = Random.Range(10f, 60f);
+                interactionTimer = 0f;
+            }
         }
     }
 

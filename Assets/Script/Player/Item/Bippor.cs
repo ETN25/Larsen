@@ -10,6 +10,7 @@ public class Bippor : MonoBehaviour
     public bool On = false;
 
     [SerializeField] GhostManager ghost;
+    [SerializeField] Transform ghostPosition;
     [SerializeField] int race;
 
     [SerializeField] float CoolDown;
@@ -18,6 +19,7 @@ public class Bippor : MonoBehaviour
     public Material M_ON, M_OFF;
     public GameObject LED;
 
+    public float distance;
 
     private void Awake()
     {
@@ -35,7 +37,9 @@ public class Bippor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (On)
+        distance = Vector3.Distance(ghostPosition.position, transform.position);
+        print(distance);
+        if (On && Vector3.Distance(ghostPosition.position, transform.position) < 8f)
         {
             if (race == 2 || race == 3)
             {
