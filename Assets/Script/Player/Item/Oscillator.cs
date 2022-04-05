@@ -9,8 +9,8 @@ public class Oscillator : MonoBehaviour
     PlayerController.ActionActions action;
     public bool On = false;
 
-    [SerializeField] GhostManager ghost;
-    [SerializeField] Transform ghostPosition;
+    [SerializeField] GhostManager ghostManager;
+    [SerializeField] GameObject Ghost;
     [SerializeField] int race;
 
     [SerializeField] float CoolDown;
@@ -28,14 +28,14 @@ public class Oscillator : MonoBehaviour
 
     void Start()
     {
-        race = ghost.race;
+        race = ghostManager.race;
         NextInteraction = Random.Range(10f, 120f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (On && Vector3.Distance(ghostPosition.position, transform.position) < 8f)
+        if (On && Vector3.Distance(Ghost.transform.position, transform.position) < 8f)
         {
             if (race == 1 || race == 3)
             {
@@ -59,10 +59,11 @@ public class Oscillator : MonoBehaviour
                     sound.pitch = -3;
                 }
             }
+            Ghost.GetComponent<Chase>().AngerLevel += 1 * Time.deltaTime;
         }
         else
         {
-            CoolDown = 0f;
+            
             sound.pitch = 1;
         }
     }

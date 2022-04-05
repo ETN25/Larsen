@@ -11,6 +11,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] Lamp lamp;
     public AudioSource Breath;
     [SerializeField] GameObject shadow, player;
+    public bool Chasing;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +24,17 @@ public class GhostManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        interactionTimer += 1 * Time.deltaTime;
-        if(interactionCooldown <= interactionTimer)
+        if (!Chasing)
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 4f)
+            interactionTimer += 1 * Time.deltaTime;
+            if (interactionCooldown <= interactionTimer)
             {
-                Action();
-                interactionCooldown = Random.Range(10f, 60f);
-                interactionTimer = 0f;
+                if (Vector3.Distance(player.transform.position, transform.position) < 4f)
+                {
+                    Action();
+                    interactionCooldown = Random.Range(10f, 60f);
+                    interactionTimer = 0f;
+                }
             }
         }
     }
@@ -100,7 +104,7 @@ public class GhostManager : MonoBehaviour
         Instantiate(shadow, transform);
     }
 
-    private void Glitch()
+    public void Glitch()
     {
         lamp.glitchOn = true;
         print("2");

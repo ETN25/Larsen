@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     Vector2 horizontalInput;
     [SerializeField] CharacterController controller;
-    [SerializeField] float speed = 11f;
+    public float speed = 11f;
     
     void Update()
     {

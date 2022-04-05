@@ -9,8 +9,8 @@ public class SpiritBox : MonoBehaviour
     PlayerController.ActionActions action;
     public bool On = false;
 
-    [SerializeField] GhostManager ghost;
-    [SerializeField] Transform ghostPosition;
+    [SerializeField] GhostManager ghostManager;
+    [SerializeField] GameObject Ghost;
     [SerializeField] int race;
 
     [SerializeField] float CoolDown;
@@ -31,14 +31,14 @@ public class SpiritBox : MonoBehaviour
 
     void Start()
     {
-        race = ghost.race;
+        race = ghostManager.race;
         NextInteraction = Random.Range(10f, 120f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (On && Vector3.Distance(ghostPosition.position, transform.position) < 8f)
+        if (On && Vector3.Distance(Ghost.transform.position, transform.position) < 8f)
         {
             if (race == 2 || race == 1)
             {
@@ -59,10 +59,11 @@ public class SpiritBox : MonoBehaviour
                 }
 
             }
+            Ghost.GetComponent<Chase>().AngerLevel += 1 * Time.deltaTime;
         }
         else
         {
-            CoolDown = 0f;
+            
         }
     }
 

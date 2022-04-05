@@ -9,8 +9,8 @@ public class Bippor : MonoBehaviour
     PlayerController.ActionActions action;
     public bool On = false;
 
-    [SerializeField] GhostManager ghost;
-    [SerializeField] Transform ghostPosition;
+    [SerializeField] GhostManager ghostManager;
+    [SerializeField] GameObject Ghost;
     [SerializeField] int race;
 
     [SerializeField] float CoolDown;
@@ -30,16 +30,16 @@ public class Bippor : MonoBehaviour
 
     void Start()
     {
-        race = ghost.race;
+        race = ghostManager.race;
         NextInteraction = Random.Range(10f, 120f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(ghostPosition.position, transform.position);
+        distance = Vector3.Distance(Ghost.transform.position, transform.position);
         print(distance);
-        if (On && Vector3.Distance(ghostPosition.position, transform.position) < 8f)
+        if (On && Vector3.Distance(Ghost.transform.position, transform.position) < 8f)
         {
             if (race == 2 || race == 3)
             {
@@ -56,10 +56,11 @@ public class Bippor : MonoBehaviour
                 }
                 
             }
+            Ghost.GetComponent<Chase>().AngerLevel += 1 * Time.deltaTime;
         }
         else
         {
-            CoolDown = 0f;
+            
         }
     }
 
