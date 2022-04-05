@@ -15,6 +15,11 @@ public class StartMenu : MonoBehaviour
         SceneManager.LoadScene("GhostPedia");
     }
 
+    public void ItemPedia()
+    {
+        SceneManager.LoadScene("ItemPedia");
+    }
+
     public void Leave()
     {
         Application.Quit();
