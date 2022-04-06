@@ -57,21 +57,21 @@ public class NavMesh : MonoBehaviour
         newPosition = new Vector3(startPosition.x + Random.Range(-range, range), startPosition.y, startPosition.z + Random.Range(-range, range));
         Navigation.destination = newPosition;
         waitingTime = Random.Range(0f, 5f);
-        if (newPosition.z < -8)
+        if (newPosition.z < 0)
         {
-            newPosition.z = -8;
+            newPosition.z = 0;
         }
-        if (newPosition.z > 8)
+        if (newPosition.z > 14)
         {
-            newPosition.z = 8;
+            newPosition.z = 14;
         }
-        if (newPosition.x < -12)
+        if (newPosition.x < 0)
         {
-            newPosition.x = -12;
+            newPosition.x = 0;
         }
-        if (newPosition.x > 12)
+        if (newPosition.x > 18)
         {
-            newPosition.x = 12;
+            newPosition.x = 18;
         }
     }
 

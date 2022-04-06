@@ -9,7 +9,7 @@ public class GhostManager : MonoBehaviour
     [SerializeField] float interactionCooldown;
     [SerializeField] float Selection;
     [SerializeField] Lamp lamp;
-    public AudioSource Breath;
+    public AudioSource Breath, Humming;
     [SerializeField] GameObject shadow, player;
     public bool Chasing;
 
@@ -32,6 +32,12 @@ public class GhostManager : MonoBehaviour
                 if (Vector3.Distance(player.transform.position, transform.position) < 4f)
                 {
                     Action();
+                    interactionCooldown = Random.Range(10f, 60f);
+                    interactionTimer = 0f;
+                }
+                else
+                {
+                    Humming.Play();
                     interactionCooldown = Random.Range(10f, 60f);
                     interactionTimer = 0f;
                 }

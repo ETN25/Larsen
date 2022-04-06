@@ -23,7 +23,7 @@ public class Chase : MonoBehaviour
 
 
         AngerLevel += 1 * Time.deltaTime;
-        if (AngerLimit <= AngerLevel)
+        if (AngerLevel > AngerLimit)
         {
             Shadow.SetActive(true);
             NavMesh.Chasing = true;
@@ -32,7 +32,7 @@ public class Chase : MonoBehaviour
             waiting += 1 * Time.deltaTime;
             if (waiting >= waitingTime)
             {
-                if(Vector3.Distance(player.transform.position, transform.position) < 15f)
+                if(Vector3.Distance(player.transform.position, transform.position) < 10f)
                 {
                     NavMesh.Chase(player.transform.position);
                     if (Vector3.Distance(player.transform.position, transform.position) < 1f)
