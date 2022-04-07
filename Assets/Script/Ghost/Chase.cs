@@ -13,7 +13,7 @@ public class Chase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AngerLimit = Random.Range(200f, 500f);
+        AngerLimit = Random.Range(100f, 500f);
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class Chase : MonoBehaviour
                 else
                 {
                     AngerLevel = 0f;
-                    AngerLimit = Random.Range(500f, 1500f);
+                    AngerLimit = Random.Range(100f, 500f);
                     NavMesh.Chasing = false;
                     GhostManager.Chasing = false;
                     Shadow.SetActive(false);
