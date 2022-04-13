@@ -50,7 +50,7 @@ public class Choice : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Loose");
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Chase : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Chase : MonoBehaviour
     public float AngerLevel, AngerLimit, waiting, waitingTime;
     public NavMesh NavMesh;
     public GhostManager GhostManager;
+    float wait;
 
     [SerializeField] float distance;
     // Start is called before the first frame update
@@ -39,6 +41,15 @@ public class Chase : MonoBehaviour
                     {
                         player.GetComponent<Movement>().speed = 0f;
                         screamer.SetActive(true);
+                        print("tué");
+                        
+                        wait += 1 * Time.deltaTime;
+                        if (wait > 1f)
+                        {
+                            Cursor.lockState = CursorLockMode.None;
+                            SceneManager.LoadScene("Killed");
+                        }
+                        
                     }
                 }
                 else
